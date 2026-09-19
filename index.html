@@ -46,18 +46,73 @@
     }
 
     button {
-      padding: 14px 30px;
-      border: none;
-      border-radius: 8px;
-      background: white;
-      color: #111;
-      font-size: 16px;
-      cursor: pointer;
-    }
+  padding: 14px 34px;
+  border: 1px solid #777;
+  border-radius: 2px;
+  background: transparent;
+  color: white;
+  font-size: 13px;
+  letter-spacing: 3px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: white;
+  color: #111;
+  border-color: white;
+}
 
     #messaggio {
-      display: none;
-    }
+  display: none;
+  animation: comparsa 0.8s ease;
+}
+
+.check {
+  width: 58px;
+  height: 58px;
+  margin: 0 auto 25px;
+  border: 1px solid #777;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  color: white;
+}
+
+.sopratitolo {
+  font-size: 12px;
+  letter-spacing: 4px;
+  color: #999;
+  margin-bottom: 12px;
+}
+
+#messaggio h1 {
+  font-size: 30px;
+  letter-spacing: 1px;
+  margin: 10px 0 20px;
+  font-weight: normal;
+}
+
+.mistero {
+  margin: 30px auto;
+  max-width: 330px;
+  line-height: 1.7;
+  color: #ccc;
+}
+
+@keyframes comparsa {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
     .errore {
       color: #ff7777;
@@ -87,11 +142,18 @@
 
 <div class="box" id="messaggio">
 
-    <h1>✓ ACCESSO AUTORIZZATO</h1>
+    <div class="check">✓</div>
 
-    <p>Verifica completata.</p>
+    <p class="sopratitolo">ACCESSO AUTORIZZATO</p>
 
-    <p>È stato recuperato un messaggio destinato esclusivamente a te.</p>
+    <h1>Operazione completata.</h1>
+
+    <p>La verifica è andata a buon fine.</p>
+
+    <p class="mistero">
+        È stato individuato un messaggio riservato
+        destinato esclusivamente a te.
+    </p>
 
     <button onclick="apriMessaggio()">CONTINUA</button>
 
