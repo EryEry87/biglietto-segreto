@@ -85,15 +85,17 @@
   </div>
 
 
-  <div class="box" id="messaggio">
+<div class="box" id="messaggio">
 
     <h1>✓ ACCESSO AUTORIZZATO</h1>
 
-    <p>Il messaggio è stato recuperato.</p>
+    <p>Verifica completata.</p>
 
-    <button onclick="apriMessaggio()">APRI</button>
+    <p>È stato recuperato un messaggio destinato esclusivamente a te.</p>
 
-  </div>
+    <button onclick="apriMessaggio()">CONTINUA</button>
+
+</div>
 
 
   <script>
@@ -119,9 +121,19 @@
 
     function apriMessaggio() {
 
-      alert("Qui inseriremo il tuo vero biglietto di auguri ❤️");
+  document.getElementById("messaggio").innerHTML = `
+  
+    <h1>🎁 MESSAGGIO RECUPERATO</h1>
 
-    }
+    <p>Hai superato la verifica.</p>
+
+    <p>Ma soprattutto...</p>
+
+    <p><strong>sei arrivato fin qui.</strong></p>
+
+  `;
+
+}
 
   </script>
 
