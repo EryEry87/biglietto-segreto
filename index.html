@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accesso riservato</title>
+
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #111;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    .box {
+      width: 85%;
+      max-width: 400px;
+    }
+
+    h1 {
+      font-size: 28px;
+      letter-spacing: 3px;
+    }
+
+    p {
+      color: #bbb;
+    }
+
+    input {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 15px;
+      margin: 20px 0 10px;
+      border: 1px solid #555;
+      border-radius: 8px;
+      background: #222;
+      color: white;
+      text-align: center;
+      font-size: 18px;
+    }
+
+    button {
+      padding: 14px 30px;
+      border: none;
+      border-radius: 8px;
+      background: white;
+      color: #111;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    #messaggio {
+      display: none;
+    }
+
+    .errore {
+      color: #ff7777;
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="box" id="accesso">
+
+    <h1>ACCESSO RISERVATO</h1>
+
+    <p>Inserisci il codice ricevuto.</p>
+
+    <input type="password" id="codice" placeholder="Codice di accesso">
+
+    <button onclick="controllaCodice()">ACCEDI</button>
+
+    <p class="errore" id="errore">
+      Codice non valido.
+    </p>
+
+  </div>
+
+
+  <div class="box" id="messaggio">
+
+    <h1>✓ ACCESSO AUTORIZZATO</h1>
+
+    <p>Il messaggio è stato recuperato.</p>
+
+    <button onclick="apriMessaggio()">APRI</button>
+
+  </div>
+
+
+  <script>
+
+    function controllaCodice() {
+
+      const codiceInserito =
+        document.getElementById("codice").value;
+
+      if (codiceInserito === "7394") {
+
+        document.getElementById("accesso").style.display = "none";
+
+        document.getElementById("messaggio").style.display = "block";
+
+      } else {
+
+        document.getElementById("errore").style.display = "block";
+
+      }
+    }
+
+
+    function apriMessaggio() {
+
+      alert("Qui inseriremo il tuo vero biglietto di auguri ❤️");
+
+    }
+
+  </script>
+
+</body>
+</html>
