@@ -103,6 +103,27 @@
       color: #ccc;
     }
 
+    .sequenza {
+      margin: 30px auto;
+      max-width: 360px;
+      line-height: 2;
+      color: #ccc;
+      font-size: 16px;
+      white-space: nowrap;
+    }
+
+    .risposte {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 25px;
+    }
+
+    .risposte button {
+      width: 220px;
+      margin: 6px 0;
+    }
+
     @keyframes comparsa {
       from {
         opacity: 0;
@@ -189,15 +210,19 @@
 
         <h1>Trova la risposta.</h1>
 
-        <p class="mistero">
-          4 — 12 — 3 — 19 — 8 — 15 — 2 — 11 — 6 — 14 — 9 — 21 — 5 — 17 — 10 — 13 — 4 — 18 — 7 — ?
-        </p>
+        <div class="sequenza">
+          4 - 12 - 3 - 19 - 8 - 15 - 2<br>
+          11 - 156 - 14 - 9 - 29 - 5 - 17<br>
+          10 - 13 - 4 - 18 - 55 - 21 - ?
+        </div>
 
         <p>Qual è il numero successivo?</p>
 
-        <button onclick="rispostaProva(0)">A. 0</button>
-        <button onclick="rispostaProva(1)">B. Cipolla</button>
-        <button onclick="rispostaProva(2)">C. 7</button>
+        <div class="risposte">
+          <button onclick="rispostaProva(0)">A. 0</button>
+          <button onclick="rispostaProva(1)">B. Cipolla</button>
+          <button onclick="rispostaProva(2)">C. 7</button>
+        </div>
 
       `;
 
