@@ -45,32 +45,33 @@
       font-size: 18px;
     }
 
-    .campo-password {
+.campo-password {
   position: relative;
   width: 100%;
 }
 
 .campo-password input {
   width: 100%;
+  box-sizing: border-box;
   padding-right: 50px;
 }
 
 .occhio {
   position: absolute;
-  right: 8px;
+  right: 5px;
   top: 50%;
   transform: translateY(-50%);
   margin: 0;
   padding: 8px;
-  border: none;
-  background: transparent;
+  border: 0;
+  background: transparent !important;
   color: #aaa;
   font-size: 18px;
-  letter-spacing: 0;
+  cursor: pointer;
 }
 
 .occhio:hover {
-  background: transparent;
+  background: transparent !important;
   color: white;
 }
     
