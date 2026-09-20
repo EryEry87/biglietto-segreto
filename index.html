@@ -45,6 +45,35 @@
       font-size: 18px;
     }
 
+    .campo-password {
+  position: relative;
+  width: 100%;
+}
+
+.campo-password input {
+  width: 100%;
+  padding-right: 50px;
+}
+
+.occhio {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0;
+  padding: 8px;
+  border: none;
+  background: transparent;
+  color: #aaa;
+  font-size: 18px;
+  letter-spacing: 0;
+}
+
+.occhio:hover {
+  background: transparent;
+  color: white;
+}
+    
     button {
       padding: 14px 34px;
       margin: 6px;
@@ -151,7 +180,10 @@
 
     <p>Inserisci il codice ricevuto.</p>
 
-    <input type="password" id="codice" placeholder="Codice di accesso">
+    <div class="campo-password">
+  <input type="password" id="codice" placeholder="Codice di accesso">
+  <button type="button" class="occhio" onclick="mostraPassword()">👁</button>
+    </div>
 
     <button onclick="controllaCodice()">ACCEDI</button>
 
@@ -253,7 +285,15 @@
       }
 
     }
+function mostraPassword() {
+  const campo = document.getElementById("codice");
 
+  if (campo.type === "password") {
+    campo.type = "text";
+  } else {
+    campo.type = "password";
+  }
+        }
   </script>
 
 </body>
