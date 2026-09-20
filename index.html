@@ -46,73 +46,74 @@
     }
 
     button {
-  padding: 14px 34px;
-  border: 1px solid #777;
-  border-radius: 2px;
-  background: transparent;
-  color: white;
-  font-size: 13px;
-  letter-spacing: 3px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
+      padding: 14px 34px;
+      margin: 6px;
+      border: 1px solid #777;
+      border-radius: 2px;
+      background: transparent;
+      color: white;
+      font-size: 13px;
+      letter-spacing: 2px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
 
-button:hover {
-  background: white;
-  color: #111;
-  border-color: white;
-}
+    button:hover {
+      background: white;
+      color: #111;
+      border-color: white;
+    }
 
     #messaggio {
-  display: none;
-  animation: comparsa 0.8s ease;
-}
+      display: none;
+      animation: comparsa 0.8s ease;
+    }
 
-.check {
-  width: 58px;
-  height: 58px;
-  margin: 0 auto 25px;
-  border: 1px solid #777;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 26px;
-  color: white;
-}
+    .check {
+      width: 58px;
+      height: 58px;
+      margin: 0 auto 25px;
+      border: 1px solid #777;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      color: white;
+    }
 
-.sopratitolo {
-  font-size: 12px;
-  letter-spacing: 4px;
-  color: #999;
-  margin-bottom: 12px;
-}
+    .sopratitolo {
+      font-size: 12px;
+      letter-spacing: 4px;
+      color: #999;
+      margin-bottom: 12px;
+    }
 
-#messaggio h1 {
-  font-size: 30px;
-  letter-spacing: 1px;
-  margin: 10px 0 20px;
-  font-weight: normal;
-}
+    #messaggio h1 {
+      font-size: 30px;
+      letter-spacing: 1px;
+      margin: 10px 0 20px;
+      font-weight: normal;
+    }
 
-.mistero {
-  margin: 30px auto;
-  max-width: 330px;
-  line-height: 1.7;
-  color: #ccc;
-}
+    .mistero {
+      margin: 30px auto;
+      max-width: 330px;
+      line-height: 1.7;
+      color: #ccc;
+    }
 
-@keyframes comparsa {
-  from {
-    opacity: 0;
-    transform: translateY(15px);
-  }
+    @keyframes comparsa {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
 
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
     .errore {
       color: #ff7777;
@@ -140,7 +141,7 @@ button:hover {
   </div>
 
 
-<div class="box" id="messaggio">
+  <div class="box" id="messaggio">
 
     <div class="check">✓</div>
 
@@ -151,12 +152,12 @@ button:hover {
     <p>Non avevo dubbi!</p>
 
     <p class="mistero">
-        Sei quello intelligente della cucciolata. 😂
+      Sei quello intelligente della cucciolata. 😂
     </p>
 
     <button onclick="apriMessaggio()">CONTINUA</button>
 
-</div>
+  </div>
 
 
   <script>
@@ -182,19 +183,51 @@ button:hover {
 
     function apriMessaggio() {
 
-  document.getElementById("messaggio").innerHTML = `
-  
-    <h1>🎁 MESSAGGIO RECUPERATO</h1>
+      document.getElementById("messaggio").innerHTML = `
 
-    <p>Hai superato la verifica.</p>
+        <p class="sopratitolo">PRIMA PROVA</p>
 
-    <p>Ma soprattutto...</p>
+        <h1>Trova la risposta.</h1>
 
-    <p><strong>sei arrivato fin qui.</strong></p>
+        <p class="mistero">
+          4 — 12 — 3 — 19 — 8 — 15 — 2 — 11 — 6 — 14 — 9 — 21 — 5 — 17 — 10 — 13 — 4 — 18 — 7 — ?
+        </p>
 
-  `;
+        <p>Qual è il numero successivo?</p>
 
-}
+        <button onclick="rispostaProva(0)">A. 0</button>
+        <button onclick="rispostaProva(1)">B. Cipolla</button>
+        <button onclick="rispostaProva(2)">C. 7</button>
+
+      `;
+
+    }
+
+
+    function rispostaProva(risposta) {
+
+      if (risposta === 2) {
+
+        document.getElementById("messaggio").innerHTML = `
+
+          <div class="check">✓</div>
+
+          <p class="sopratitolo">RISPOSTA ACCETTATA</p>
+
+          <p class="mistero">
+            So che era difficile.<br>
+            <strong>Il 7 è la risposta a tutto.</strong>
+          </p>
+
+        `;
+
+      } else {
+
+        alert("No. 😂 Riprova.");
+
+      }
+
+    }
 
   </script>
 
