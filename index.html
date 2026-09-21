@@ -437,29 +437,45 @@ function cliccaBottone() {
 
   tentativi++;
 
+  bottone.style.position = "fixed";
+  bottone.style.zIndex = "9999";
+
   if (tentativi === 1) {
 
+    // Scappa sopra tutto
     bottone.style.left = "50%";
-    bottone.style.top = "5%";
+    bottone.style.top = "8%";
+    bottone.style.transform = "translate(-50%, -50%) scale(1)";
 
   } else if (tentativi === 2) {
 
+    // Scappa completamente in basso
     bottone.style.left = "50%";
-    bottone.style.top = "90%";
+    bottone.style.top = "92%";
+    bottone.style.transform = "translate(-50%, -50%) scale(0.9)";
 
   } else if (tentativi === 3) {
 
-    bottone.style.left = "70%";
-    bottone.style.top = "10%";
+    // Diventa piccolo e scappa in alto a destra
+    bottone.style.left = "82%";
+    bottone.style.top = "12%";
+    bottone.style.transform = "translate(-50%, -50%) scale(0.65)";
+
+  } else if (tentativi === 4) {
+
+    // Torna grande e cambia completamente zona
+    bottone.style.left = "18%";
+    bottone.style.top = "72%";
+    bottone.style.transform = "translate(-50%, -50%) scale(1.15)";
 
   } else {
 
+    // Alla fine si arrende
     mostraPrefazione();
 
   }
 
 }
-
 
     function mostraPrefazione() {
 
