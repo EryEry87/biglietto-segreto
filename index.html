@@ -17,6 +17,7 @@
       color: white;
       font-family: Arial, sans-serif;
       text-align: center;
+      overflow: hidden;
     }
 
     .box {
@@ -149,21 +150,60 @@
       margin-bottom: 70px;
     }
 
-.linea-segreta {
-  width: 20px;
-  height: 1px;
-  background: #333;
-  position: fixed;
-  top: 28px;
-  right: 28px;
-  cursor: pointer;
-  opacity: 0.35;
-  transition: opacity 0.3s ease;
-}
+    .linea-segreta {
+      width: 20px;
+      height: 1px;
+      background: #333;
+      position: fixed;
+      top: 28px;
+      right: 28px;
+      cursor: pointer;
+      opacity: 0.35;
+      transition: opacity 0.3s ease;
+    }
 
-.linea-segreta:hover {
-  opacity: 0.45;
-}
+    .linea-segreta:hover {
+      opacity: 0.45;
+    }
+
+    .area-finale {
+      position: relative;
+      height: 180px;
+      width: 100%;
+    }
+
+    .bottone-finale {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      white-space: nowrap;
+      transition: left 0.35s ease, top 0.35s ease;
+    }
+
+    .testo-emotivo {
+      max-width: 340px;
+      margin: 0 auto;
+      line-height: 1.8;
+      color: #ccc;
+      font-size: 16px;
+    }
+
+    .frase-finale {
+      opacity: 0;
+      animation: comparsaLenta 2s ease forwards;
+    }
+
+    .frase-finale.seconda {
+      animation-delay: 3s;
+    }
+
+    .pulsante-emotivo {
+      opacity: 0;
+      animation: comparsaLenta 1.5s ease forwards;
+      animation-delay: 5.5s;
+      margin-top: 45px;
+    }
 
     @keyframes comparsa {
       from {
@@ -174,6 +214,16 @@
       to {
         opacity: 1;
         transform: translateY(0);
+      }
+    }
+
+    @keyframes comparsaLenta {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
       }
     }
 
@@ -344,22 +394,103 @@
           A quanto pare sai guardare oltre l'ovvio.
         </p>
 
-        <button onclick="fineSecondaProva()">CONTINUA →</button>
+        <button onclick="terzaProva()">CONTINUA →</button>
 
       `;
 
     }
 
 
-    function fineSecondaProva() {
+    function terzaProva() {
 
       document.getElementById("messaggio").innerHTML = `
 
-        <p class="sopratitolo">SECONDA PROVA COMPLETATA</p>
+        <div class="check">✓</div>
 
-        <h1>Preparati.</h1>
+        <p class="sopratitolo">VERIFICA COMPLETATA</p>
+
+        <p class="mistero">
+          Tutti i requisiti sono stati soddisfatti.<br>
+          Il contenuto è pronto.
+        </p>
+
+        <div class="area-finale">
+          <button
+            id="bottoneScappa"
+            class="bottone-finale"
+            onclick="cliccaBottone()">
+            CONTINUA
+          </button>
+        </div>
 
       `;
+
+    }
+
+
+    let tentativi = 0;
+
+
+    function cliccaBottone() {
+
+      const bottone = document.getElementById("bottoneScappa");
+
+      tentativi++;
+
+      if (tentativi <= 3) {
+
+        const posizioni = [
+          { left: "20%", top: "25%" },
+          { left: "75%", top: "70%" },
+          { left: "35%", top: "80%" }
+        ];
+
+        const posizione = posizioni[tentativi - 1];
+
+        bottone.style.left = posizione.left;
+        bottone.style.top = posizione.top;
+
+      } else {
+
+        mostraPrefazione();
+
+      }
+
+    }
+
+
+    function mostraPrefazione() {
+
+      document.getElementById("messaggio").innerHTML = `
+
+        <div class="testo-emotivo">
+
+          <p class="frase-finale">
+            Quando una persona è abituata a guardare oltre l'ovvio,
+            anche un semplice augurio merita un modo diverso per arrivare...
+          </p>
+
+          <p class="frase-finale seconda">
+            L'ordinario va bene per le occasioni ordinarie.
+            Per te, serviva qualcosa di diverso ☺️
+          </p>
+
+          <button
+            class="pulsante-emotivo"
+            onclick="scopriBiglietto()">
+            SCOPRI IL TUO BIGLIETTO
+          </button>
+
+        </div>
+
+      `;
+
+    }
+
+
+    function scopriBiglietto() {
+
+      alert("Qui inseriremo il biglietto. ❤️");
 
     }
 
